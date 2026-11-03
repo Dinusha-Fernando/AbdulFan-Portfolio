@@ -1,12 +1,12 @@
 {
-  "name": "portfolio-scroll-animation",
+  "name": "abdulfan-portfolio",
   "version": "1.0.0",
-  "description": "Smooth scroll image sequence animation",
+  "description": "AbdulFandom — Official Creative Portfolio of Abdul Umar Sahan Nethmina",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'Static deployment ready'"
   },
-  "author": "",
+  "author": "Dinusha Fernando",
   "license": "ISC"
 }
-
