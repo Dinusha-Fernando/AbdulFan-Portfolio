@@ -1,0 +1,117 @@
+/* ==========================================================================
+   BUTTONS COMPONENT
+   Architectural Capsule Geometry · Prismatic Shimmer · Specular Glow
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.95rem 2.25rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.35s var(--ease-cinematic);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  z-index: 1;
+}
+
+/* Subtle Prismatic Shimmer Sweep on Hover */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: skewX(-22deg);
+  transition: left 0.7s var(--ease-cinematic);
+  pointer-events: none;
+  z-index: 1;
+}
+.btn:hover::before {
+  left: 170%;
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Primary Gold Button: Metallic Foil with Chamfered Specular Glow */
+.btn-gold {
+  background: var(--color-gold-gradient);
+  color: #050811;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 4px 20px rgba(212, 175, 55, 0.32),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #fff2cc 0%, #e0bd4d 50%, #c4961d 100%);
+  box-shadow: 
+    0 8px 32px rgba(212, 175, 55, 0.55),
+    0 0 15px rgba(212, 175, 55, 0.3),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+  color: #020409;
+}
+
+/* Secondary Glass Button: Ultra-Clean Frosted Crystal Capsule */
+.btn-outline {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%), rgba(8, 14, 28, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  color: var(--color-ivory);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 4px 18px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 0 15px 0 rgba(212, 175, 55, 0.03);
+}
+.btn-outline:hover {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.14) 0%, rgba(255, 255, 255, 0.04) 100%), rgba(12, 20, 38, 0.65);
+  border-color: rgba(212, 175, 55, 0.7);
+  color: var(--color-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 28px rgba(0, 0, 0, 0.55),
+    0 0 25px rgba(212, 175, 55, 0.22),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.btn-sm {
+  padding: 0.6rem 1.45rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+}
+
+.btn-nav-cta {
+  padding: 0.55rem 1.35rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  border-radius: 9999px;
+}
+
+.btn-arrow {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s var(--ease-cinematic);
+}
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+.w-full {
+  width: 100%;
+}
+

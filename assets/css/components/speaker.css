@@ -1,0 +1,302 @@
+/* ==========================================================================
+   SPEAKER COMPONENT
+   Keynote Stage Banner · Oratory Topics Grid · Audience Stats
+   ========================================================================== */
+
+/* -------------------------------------------------------------
+   1. KEYNOTE STAGE HERO BANNER
+   ------------------------------------------------------------- */
+.speaker-stage-hero {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.32);
+  margin-bottom: 2.75rem;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 35px rgba(212, 175, 55, 0.08);
+  padding: 3rem;
+  background: #03060f;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.speaker-stage-hero:hover {
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.75), 0 0 45px rgba(212, 175, 55, 0.15);
+}
+
+.speaker-hero-img-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.speaker-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  filter: saturate(1.15) brightness(0.85);
+  transition: transform 1.2s var(--ease-cinematic);
+}
+
+.speaker-stage-hero:hover .speaker-hero-img {
+  transform: scale(1.03);
+}
+
+.speaker-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 80% 35%, rgba(3, 6, 15, 0.18) 0%, rgba(3, 6, 15, 0.65) 55%, rgba(3, 6, 15, 0.95) 100%),
+    linear-gradient(90deg, rgba(3, 6, 15, 0.96) 0%, rgba(3, 6, 15, 0.8) 45%, rgba(3, 6, 15, 0.35) 100%);
+}
+
+.speaker-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2.5rem 2.75rem;
+  max-width: 680px;
+  width: 100%;
+  background: rgba(4, 8, 18, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 18px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.75),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    0 0 30px rgba(212, 175, 55, 0.08);
+  margin: 0;
+}
+
+.speaker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--color-gold-light);
+  text-transform: uppercase;
+  margin-bottom: 1.1rem;
+  padding: 0.35rem 0.9rem;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.32);
+  border-radius: 9999px;
+  width: fit-content;
+}
+
+.speaker-badge::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  box-shadow: 0 0 8px var(--color-gold);
+}
+
+.speaker-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.4vw, 2.15rem);
+  font-weight: 700;
+  color: var(--color-ivory);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.speaker-hero-text {
+  font-size: 1rem;
+  color: rgba(240, 243, 246, 0.85);
+  line-height: 1.7;
+  margin-bottom: 1.85rem;
+  max-width: 640px;
+}
+
+.speaker-cta-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* -------------------------------------------------------------
+   2. ORATORY TOPICS GRID
+   ------------------------------------------------------------- */
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.75rem;
+}
+
+.topic-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border-gold);
+  border-radius: 16px;
+  padding: 2.25rem 2rem;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.topic-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  opacity: 0.35;
+  transition: opacity var(--transition-normal);
+}
+
+.topic-card:hover {
+  transform: translateY(-6px);
+  background: var(--glass-bg-hover);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: var(--glass-shadow-hover), 0 0 30px rgba(212, 175, 55, 0.12);
+}
+
+.topic-card:hover::before {
+  opacity: 1;
+}
+
+.topic-index {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--color-gold);
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.topic-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--color-ivory);
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.topic-tagline {
+  font-size: 0.88rem;
+  color: var(--color-gold-light);
+  font-style: italic;
+  margin-bottom: 1.1rem;
+  line-height: 1.4;
+}
+
+.topic-desc {
+  font-size: 0.94rem;
+  color: var(--color-ivory-dim);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.topic-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.topic-tags span {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--color-ivory-dim);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  transition: all var(--transition-fast);
+}
+
+.topic-card:hover .topic-tags span {
+  border-color: rgba(212, 175, 55, 0.35);
+  color: var(--color-ivory);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+/* -------------------------------------------------------------
+   3. RESPONSIVE MEDIA QUERIES
+   ------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .speaker-stage-hero {
+    min-height: auto;
+    padding: 2.25rem;
+    margin-bottom: 2.25rem;
+  }
+  .speaker-hero-content {
+    padding: 2rem 2.25rem;
+    max-width: 100%;
+  }
+  .speaker-hero-overlay {
+    background: linear-gradient(180deg, rgba(3, 6, 15, 0.45) 0%, rgba(3, 6, 15, 0.82) 50%, rgba(3, 6, 15, 0.98) 100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .speaker-stage-hero {
+    padding: 1.25rem 1rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+  }
+  .speaker-hero-content {
+    padding: 1.6rem 1.25rem;
+    border-radius: 14px;
+    width: 100%;
+  }
+  .speaker-badge {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.75rem;
+    letter-spacing: 0.16em;
+    margin-bottom: 0.85rem;
+  }
+  .speaker-hero-title {
+    font-size: 1.35rem;
+    line-height: 1.35;
+    margin-bottom: 0.85rem;
+  }
+  .speaker-hero-text {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin-bottom: 1.4rem;
+  }
+  .speaker-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .speaker-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.5rem;
+  }
+  .topics-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .topic-card {
+    padding: 1.75rem 1.5rem;
+  }
+}

@@ -1,0 +1,392 @@
+/* ==========================================================================
+   ANIMATIONS COMPONENT — SMOOTH & CINEMATIC MOTION SYSTEM
+   Abdul Umar Sahan Nethmina — Creative Brand & Portfolio
+   High-performance GPU-accelerated entrance and scroll reveals
+   ========================================================================== */
+
+/* -------------------------------------------------------------
+   1. KEYFRAME DEFINITIONS
+   ------------------------------------------------------------- */
+
+/* Hero Entrance Sequence */
+@keyframes heroBadgeEntrance {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroHeadlineReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 36px, 0);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroTextReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroCtaReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* Subtle Breathing Float */
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Divider Gold Expansion */
+@keyframes dividerExpand {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Ambient Gold Glow Pulse */
+@keyframes goldPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.45);
+  }
+}
+
+/* Scroll Cue Bounce */
+@keyframes scrollCueBob {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+/* -------------------------------------------------------------
+   2. HERO IMMEDIATE ENTRANCE STYLING
+   ------------------------------------------------------------- */
+.hero-badge {
+  animation: heroBadgeEntrance 1s var(--ease-cinematic) 0.2s both;
+}
+
+.hero-firstname {
+  display: block;
+  animation: heroHeadlineReveal 1.2s var(--ease-cinematic) 0.35s both;
+}
+
+.hero-lastname {
+  display: block;
+  animation: heroHeadlineReveal 1.25s var(--ease-cinematic) 0.5s both;
+}
+
+.hero-tagline {
+  animation: heroTextReveal 1s var(--ease-cinematic) 0.65s both;
+}
+
+.hero-description {
+  animation: heroTextReveal 1s var(--ease-cinematic) 0.78s both;
+}
+
+.hero-cta-group {
+  animation: heroCtaReveal 1.1s var(--ease-cinematic) 0.9s both;
+}
+
+.hero-scroll-indicator {
+  animation: heroTextReveal 1s var(--ease-cinematic) 1.1s both;
+}
+
+.scroll-arrow {
+  animation: scrollCueBob 2s ease-in-out infinite;
+}
+
+/* -------------------------------------------------------------
+   3. SCROLL-DRIVEN REVEAL SYSTEM
+   ------------------------------------------------------------- */
+
+/* Standard Reveal (Drift Up & Fade In) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  transition: opacity 0.85s var(--ease-cinematic),
+              transform 0.85s var(--ease-cinematic);
+  will-change: transform, opacity;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Slide From Left */
+.reveal-slide-left {
+  opacity: 0;
+  transform: translate3d(-40px, 0, 0);
+  transition: opacity 0.9s var(--ease-cinematic),
+              transform 0.9s var(--ease-cinematic);
+  will-change: transform, opacity;
+}
+
+.reveal-slide-left.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Slide From Right */
+.reveal-slide-right {
+  opacity: 0;
+  transform: translate3d(40px, 0, 0);
+  transition: opacity 0.9s var(--ease-cinematic),
+              transform 0.9s var(--ease-cinematic);
+  will-change: transform, opacity;
+}
+
+.reveal-slide-right.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Scale & Focus In */
+.reveal-scale-in {
+  opacity: 0;
+  transform: scale(0.95) translate3d(0, 20px, 0);
+  transition: opacity 0.95s var(--ease-cinematic),
+              transform 0.95s var(--ease-cinematic);
+  will-change: transform, opacity;
+}
+
+.reveal-scale-in.is-revealed {
+  opacity: 1;
+  transform: scale(1) translate3d(0, 0, 0);
+}
+
+/* -------------------------------------------------------------
+   4. SECTION HEADERS REVEAL SEQUENCE
+   ------------------------------------------------------------- */
+.section-header .section-eyebrow {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.75s var(--ease-cinematic),
+              transform 0.75s var(--ease-cinematic);
+}
+
+.section-header .section-title {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 0.85s var(--ease-cinematic) 0.1s,
+              transform 0.85s var(--ease-cinematic) 0.1s;
+}
+
+.section-header .section-subtitle {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.85s var(--ease-cinematic) 0.2s,
+              transform 0.85s var(--ease-cinematic) 0.2s;
+}
+
+.section-header .gold-divider {
+  transform: scaleX(0);
+  opacity: 0;
+  transform-origin: center;
+  transition: transform 0.9s var(--ease-cinematic) 0.28s,
+              opacity 0.9s ease 0.28s;
+}
+
+.section-header.is-revealed .section-eyebrow,
+.section-header.is-revealed .section-title,
+.section-header.is-revealed .section-subtitle {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.section-header.is-revealed .gold-divider {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Left-aligned divider support */
+.gold-divider.left {
+  transform-origin: left;
+}
+
+/* -------------------------------------------------------------
+   5. STAGGERED REVEALS FOR CARDS & GRIDS
+   ------------------------------------------------------------- */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  transition: opacity 0.85s var(--ease-cinematic),
+              transform 0.85s var(--ease-cinematic);
+}
+
+.reveal-stagger.is-revealed > *:nth-child(1) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.05s;
+}
+
+.reveal-stagger.is-revealed > *:nth-child(2) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.15s;
+}
+
+.reveal-stagger.is-revealed > *:nth-child(3) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.25s;
+}
+
+.reveal-stagger.is-revealed > *:nth-child(4) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.35s;
+}
+
+.reveal-stagger.is-revealed > *:nth-child(5) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.45s;
+}
+
+.reveal-stagger.is-revealed > *:nth-child(6) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.55s;
+}
+
+/* Stagger delay classes for manual control */
+.delay-1 { transition-delay: 0.1s !important; }
+.delay-2 { transition-delay: 0.2s !important; }
+.delay-3 { transition-delay: 0.3s !important; }
+.delay-4 { transition-delay: 0.4s !important; }
+
+/* -------------------------------------------------------------
+   6. DELICATE INTERACTION & HOVER POLISH
+   ------------------------------------------------------------- */
+
+/* Text Link Gold Underline Slide */
+.nav-link, .footer-nav a, .pillar-link {
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after, .footer-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-gold);
+  transition: width 0.35s var(--ease-cinematic);
+}
+
+.nav-link:hover::after, .footer-nav a:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+/* Smooth Image Hover Depth */
+.about-portrait-img, .speaker-hero-img, .gallery-item img {
+  transition: transform 0.65s var(--ease-cinematic), filter 0.65s var(--ease-cinematic);
+}
+
+.portrait-frame:hover .about-portrait-img {
+  transform: scale(1.03);
+}
+
+/* Smooth Milestones Counter Bar */
+.milestones-bar {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: all 0.85s var(--ease-cinematic) 0.3s;
+}
+
+.milestones-bar.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.stat-item {
+  transition: transform 0.3s var(--ease-cinematic);
+}
+
+.stat-item:hover {
+  transform: translateY(-3px);
+}
+
+/* Bookshelf Spines Entrance Ripple */
+.bookshelf-stage.is-revealed .spine-item {
+  animation: spineSettle 0.6s var(--ease-cinematic) backwards;
+}
+
+@keyframes spineSettle {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scaleY(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+/* -------------------------------------------------------------
+   7. ACCESSIBILITY — REDUCED MOTION PREFERENCE
+   ------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .reveal-on-scroll,
+  .reveal-slide-left,
+  .reveal-slide-right,
+  .reveal-scale-in,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
