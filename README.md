@@ -110,7 +110,8 @@ A luxury, dark-aesthetic portfolio website crafted with smooth glassmorphism, re
 ├── index.html                    # Main HTML document
 ├── package.json                  # Project configuration
 ├── README.md                     # Documentation
-└── server.js                     # Local HTTP server
+├── scripts/                      # Local dev server
+└── vercel.json                   # Vercel deployment config
 ```
 
 ---
@@ -120,3 +121,4 @@ A luxury, dark-aesthetic portfolio website crafted with smooth glassmorphism, re
 All intellectual property, literary works, and visual assets belong to **Abdul Umar Sahan Nethmina** & **AbdulFandom**.
 
 Website built with ❤️ for **AbdulFandom**.
+
